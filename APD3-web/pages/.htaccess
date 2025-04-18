@@ -1,0 +1,6 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # make forbidden this forder
+    Order deny,allow
+    Deny from all
+</IfModule>

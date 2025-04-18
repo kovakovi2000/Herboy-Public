@@ -1,0 +1,9 @@
+{
+    "PREDEFINED_FILES": [
+        "base.bmp",
+        "rail.bmp",
+        "magazine.bmp",
+        "scope.bmp",
+        "scope_clamps.bmp"
+    ]
+}

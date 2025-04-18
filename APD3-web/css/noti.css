@@ -1,0 +1,171 @@
+.header-not-icon {
+    transition: fill .4s ease;
+    fill: white;
+}
+.header-menu-noti{
+    position: fixed;
+    top: 52px; 
+    right: 235px;
+}
+.header-menu-noti .num {
+    position:absolute;
+    top:0;
+    right:-5px;
+    width:17px;
+    height:17px;
+    border-radius:50%;
+    background:#ff2c74;
+    color:#fff;
+    font-family:sans-serif;
+    text-align: center;
+    font-size: 12px;
+    cursor: pointer;
+}
+.header-menu-noti .noti-list {
+    position:absolute;
+    top:35px;
+    right:-15px;
+    width:380px;
+    height:500px;
+    border-radius:25px;
+    background: #000;
+    border: solid 2px #ff2c74;
+    color: #fff;
+    font-family:sans-serif;
+    text-align: left;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    overflow-x: hidden;
+    padding-bottom: 10px;
+}
+.header-menu-noti .noti-list .note-list-title {
+    color: #fff;
+    font-size: 20px;
+    margin: 5px 0 0 15px;
+    padding: 0;
+}
+.header-menu-noti .noti-list::-webkit-scrollbar {
+    width: 3px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+.header-menu-noti .noti-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+/* Handle */
+.header-menu-noti .noti-list::-webkit-scrollbar-thumb {
+    background: #888;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+/* Handle on hover */
+.header-menu-noti .noti-list::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.header-menu-noti .noti-list .note {
+    color: white;
+    transition: background-color .2s ease;
+    background-color: #000;
+    border-radius:25px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: solid 5px #ff2c74;
+    max-height: 100px;
+    flex: 1 1 auto;
+    cursor: pointer;
+}
+.header-menu-noti .noti-list .seen {
+    border-left: solid 5px #000;
+}
+.header-menu-noti .noti-list .note h4 {
+    margin-top: 16px !important;
+    font-size: 15px;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+.header-menu-noti .noti-list .note p {
+    margin-top: 3px !important;
+    font-size: 12px;
+    color: #cc147f;
+    margin: 0;
+    padding: 0;
+    padding-right: 5px;
+    line-height: 14px;
+}
+.header-menu-noti .noti-list .note snap {
+    position: relative;
+    left: 160px !important;
+    font-size: 10px;
+    color: grey;
+    margin: 0;
+    padding: 0;
+}
+.header-menu-noti .noti-list .note i {
+    float: left;
+    margin: 15px;
+    padding: 0;
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
+    text-align: center;
+    padding: 10px;
+    font-size: 55px;
+}
+
+.header-menu-noti .noti-list .seen h4 {
+    color: grey !important;
+}
+.header-menu-noti .noti-list .seen p {
+    color: grey !important;
+}
+
+
+.header-menu-noti .noti-list .note:hover {
+    background-color: #222;
+    border-left: solid 5px #ff5e95;
+}
+
+.header-menu-noti:hover .num > .header-not-icon{
+    fill: #cc147f;
+    cursor: pointer;
+}
+.header-menu-noti:hover svg > .header-not-icon{
+    fill: #cc147f;
+    cursor: pointer;
+}
+.header-menu-noti:hover svg {
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 1600px) {
+    .header-menu-noti {
+        right: 185px;
+    }
+}
+@media only screen and (max-width: 800px) {
+    .header-menu-noti {
+        right: 165px;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .header-menu-noti {
+        right: 155px;
+        top: 40px;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .header-menu-noti {
+        right: 75px;
+        top: 40px;
+    }
+}

@@ -1,0 +1,146 @@
+[hu]
+HBROUND_TYPE_KNIFE = Kés
+HBROUND_TYPE_GRENADE_KNIFE = Gránát & Kés
+HBROUND_TYPE_SHOTGUN = Shotgun
+HBROUND_TYPE_DEAGLE = Deagle
+HBROUND_TYPE_AWP = AWP
+HBROUND_TYPE_RANDOM_PISTOL = Random Pisztoly
+HBROUND_TYPE_BERETTA = Beretta
+HBROUND_TYPE_USP_GLOCK = USP & Glock
+HBROUND_TYPE_TMP = TMP
+HBROUND_TYPE_INFINITE_GRENADE = Végtelen gránát
+HBROUND_TYPE_SCOUT = Scout
+HBROUND_TYPE_AWP_NOSCOPE = AWP No-Scope
+HBROUND_TYPE_P90 = P90
+HBROUND_MSG_START = A HerBoy Kör Elkezdődik 2 másodperc múlva!
+HBROUND_MSG_ROUND = Kör
+HBROUND_MSG_STARTED = ^3%s ^4elindította: ^3%s ^4kör!
+HBROUND_MSG_NO_WEAPONS = ^4Ebben a körben nem tudsz felvenni fegyvereket!
+HBROUND_MSG_ENDED = A ^4HerBoy ^3kör ^1véget ért.
+HBROUND_MSG_NO_DROP = ^4Nem tudod eldobni a fegyvert a HerBoy kör alatt!
+
+[en]
+HBROUND_TYPE_KNIFE = Knife
+HBROUND_TYPE_GRENADE_KNIFE = Grenade & Knife
+HBROUND_TYPE_SHOTGUN = Shotgun
+HBROUND_TYPE_DEAGLE = Deagle
+HBROUND_TYPE_AWP = AWP
+HBROUND_TYPE_RANDOM_PISTOL = Random Pistol
+HBROUND_TYPE_BERETTA = Beretta
+HBROUND_TYPE_USP_GLOCK = USP & Glock
+HBROUND_TYPE_TMP = TMP
+HBROUND_TYPE_INFINITE_GRENADE = Infinite Grenade
+HBROUND_TYPE_SCOUT = Scout
+HBROUND_TYPE_AWP_NOSCOPE = AWP No-Scope
+HBROUND_TYPE_P90 = P90
+HBROUND_MSG_START = The HerBoy Round starts in 2 seconds!
+HBROUND_MSG_ROUND = Round
+HBROUND_MSG_STARTED = ^3%s ^4has started the ^3%s ^4round!
+HBROUND_MSG_NO_WEAPONS = ^4You cannot pick up weapons this round!
+HBROUND_MSG_ENDED = The ^4HerBoy ^3round ^1has ended.
+HBROUND_MSG_NO_DROP = ^4You cannot drop weapons during the HerBoy round!
+
+[ro]
+HBROUND_TYPE_KNIFE = Cuțit
+HBROUND_TYPE_GRENADE_KNIFE = Grenadă & Cuțit
+HBROUND_TYPE_SHOTGUN = Shotgun
+HBROUND_TYPE_DEAGLE = Deagle
+HBROUND_TYPE_AWP = AWP
+HBROUND_TYPE_RANDOM_PISTOL = Pistol Aleatoriu
+HBROUND_TYPE_BERETTA = Beretta
+HBROUND_TYPE_USP_GLOCK = USP & Glock
+HBROUND_TYPE_TMP = TMP
+HBROUND_TYPE_INFINITE_GRENADE = Grenadă Infinită
+HBROUND_TYPE_SCOUT = Scout
+HBROUND_TYPE_AWP_NOSCOPE = AWP No-Scope
+HBROUND_TYPE_P90 = P90
+HBROUND_MSG_START = Runda HerBoy începe în 2 secunde!
+HBROUND_MSG_ROUND = Rundă
+HBROUND_MSG_STARTED = ^3%s ^4a început runda: ^3%s!
+HBROUND_MSG_NO_WEAPONS = ^4Nu poți lua arme în această rundă!
+HBROUND_MSG_ENDED = ^4Runda HerBoy ^3s-a ^1terminat.
+HBROUND_MSG_NO_DROP = ^4Nu poți arunca arme în timpul rundei HerBoy!
+
+[sk]
+HBROUND_TYPE_KNIFE = Nôž
+HBROUND_TYPE_GRENADE_KNIFE = Granát & Nôž
+HBROUND_TYPE_SHOTGUN = Shotgun
+HBROUND_TYPE_DEAGLE = Deagle
+HBROUND_TYPE_AWP = AWP
+HBROUND_TYPE_RANDOM_PISTOL = Náhodná pištoľ
+HBROUND_TYPE_BERETTA = Beretta
+HBROUND_TYPE_USP_GLOCK = USP & Glock
+HBROUND_TYPE_TMP = TMP
+HBROUND_TYPE_INFINITE_GRENADE = Nekonečný granát
+HBROUND_TYPE_SCOUT = Scout
+HBROUND_TYPE_AWP_NOSCOPE = AWP No-Scope
+HBROUND_TYPE_P90 = P90
+HBROUND_MSG_START = HerBoy kolo začne o 2 sekundy!
+HBROUND_MSG_ROUND = Kolo
+HBROUND_MSG_STARTED = ^3%s ^4začal kolo: ^3%s!
+HBROUND_MSG_NO_WEAPONS = ^4Nemôžeš zbierať zbrane v tomto kole!
+HBROUND_MSG_ENDED = ^4HerBoy ^3kolo ^1skončilo.
+HBROUND_MSG_NO_DROP = ^4Nemôžeš zahodiť zbraň počas HerBoy kola!
+
+[sr]
+HBROUND_TYPE_KNIFE = Nož
+HBROUND_TYPE_GRENADE_KNIFE = Granata & Nož
+HBROUND_TYPE_SHOTGUN = Shotgun
+HBROUND_TYPE_DEAGLE = Deagle
+HBROUND_TYPE_AWP = AWP
+HBROUND_TYPE_RANDOM_PISTOL = Nasumični Pištolj
+HBROUND_TYPE_BERETTA = Beretta
+HBROUND_TYPE_USP_GLOCK = USP & Glock
+HBROUND_TYPE_TMP = TMP
+HBROUND_TYPE_INFINITE_GRENADE = Beskonačna Granata
+HBROUND_TYPE_SCOUT = Scout
+HBROUND_TYPE_AWP_NOSCOPE = AWP No-Scope
+HBROUND_TYPE_P90 = P90
+HBROUND_MSG_START = HerBoy Runda počinje za 2 sekunde!
+HBROUND_MSG_ROUND = Runda
+HBROUND_MSG_STARTED = ^3%s ^4je započeo rundu: ^3%s!
+HBROUND_MSG_NO_WEAPONS = ^4Ne možeš pokupiti oružja u ovoj rundi!
+HBROUND_MSG_ENDED = ^4HerBoy ^3runda ^1je završena.
+HBROUND_MSG_NO_DROP = ^4Ne možeš baciti oružje tokom HerBoy runde!
+
+[de]
+HBROUND_TYPE_KNIFE = Messer
+HBROUND_TYPE_GRENADE_KNIFE = Granate & Messer
+HBROUND_TYPE_SHOTGUN = Shotgun
+HBROUND_TYPE_DEAGLE = Deagle
+HBROUND_TYPE_AWP = AWP
+HBROUND_TYPE_RANDOM_PISTOL = Zufällige Pistole
+HBROUND_TYPE_BERETTA = Beretta
+HBROUND_TYPE_USP_GLOCK = USP & Glock
+HBROUND_TYPE_TMP = TMP
+HBROUND_TYPE_INFINITE_GRENADE = Unendliche Granate
+HBROUND_TYPE_SCOUT = Scout
+HBROUND_TYPE_AWP_NOSCOPE = AWP No-Scope
+HBROUND_TYPE_P90 = P90
+HBROUND_MSG_START = Die HerBoy Runde beginnt in 2 Sekunden!
+HBROUND_MSG_ROUND = Runde
+HBROUND_MSG_STARTED = ^3%s ^4hat die ^3%s ^4Runde gestartet!
+HBROUND_MSG_NO_WEAPONS = ^4Du kannst in dieser Runde keine Waffen aufheben!
+HBROUND_MSG_ENDED = Die ^4HerBoy ^3Runde ist ^1vorbei.
+HBROUND_MSG_NO_DROP = ^4Du kannst keine Waffen während der HerBoy Runde ablegen!
+
+[au]
+HBROUND_TYPE_KNIFE = Nizh
+HBROUND_TYPE_GRENADE_KNIFE = Hranata & Nizh
+HBROUND_TYPE_SHOTGUN = Shotgun
+HBROUND_TYPE_DEAGLE = Deagle
+HBROUND_TYPE_AWP = AWP
+HBROUND_TYPE_RANDOM_PISTOL = Vypadkovyy Pistolet
+HBROUND_TYPE_BERETTA = Beretta
+HBROUND_TYPE_USP_GLOCK = USP & Glock
+HBROUND_TYPE_TMP = TMP
+HBROUND_TYPE_INFINITE_GRENADE = Bezmezhna Hranata
+HBROUND_TYPE_SCOUT = Scout
+HBROUND_TYPE_AWP_NOSCOPE = AWP No-Scope
+HBROUND_TYPE_P90 = P90
+HBROUND_MSG_START = Runda HerBoy pochynaiet'sia za 2 sekundy!
+HBROUND_MSG_ROUND = Runda
+HBROUND_MSG_STARTED = ^3%s ^4rozpochav rundu: ^3%s!
+HBROUND_MSG_NO_WEAPONS = ^4U tsiy rundi ty ne mozhesh' pidbyraty zbroiu!
+HBROUND_MSG_ENDED = ^4Runda HerBoy ^3zakinchylasʹ.
+HBROUND_MSG_NO_DROP = ^4Ty ne mozheshʹ kynuty zbroiu pid chas rundy HerBoy!

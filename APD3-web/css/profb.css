@@ -1,0 +1,119 @@
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black background */
+}
+
+.modal-content {
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.8
+  ); /* Semi-transparent black background for modal content */
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  display: table;
+}
+
+.modal-buttons {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.modal-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.modal-content input {
+  /* Ensure input fields have a visible background */
+  color: #000; /* Ensure text inside input fields is visible */
+}
+
+.modal-button-cancel {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.modal-content h2 {
+  color: white;
+  margin-bottom: 20px;
+}
+
+/* Style for labels inside the modal */
+.modal-content label {
+  color: white;
+  font-size: 16px;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+/* Make labels and inputs centered */
+.modal-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center input fields and labels */
+  width: 100%;
+  margin-bottom: 15px; /* Add space between rows */
+}
+
+.modal-row input,
+.modal-row select {
+  width: 80%; /* Adjust the width of input fields */
+  text-align: center; /* Center the input text */
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+  border: 3px solid #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+html {
+  scrollbar-color: #888 #000000;
+  scrollbar-width: thin;
+}

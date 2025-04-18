@@ -1,0 +1,466 @@
+#include <amxmodx>
+#include <amxmisc>
+#include <cstrike>
+#include <engine>
+#include <fun>
+#include <hamsandwich>
+#include <fakemeta>
+#include <xs>
+#include <fakemeta_util>
+#include <sqlx>
+
+#define Is_Beta_Test = 1
+#define NoUpdate = 1
+
+new const g_szServerIP[] = "37.221.209.129:27777";
+
+new const sql_csatlakozas[][] = { "db.synhosting.eu", "marosi", "marosi", "marosi" };
+
+new const PLUGIN[] = "~ Profiles";
+new const VERSION[] = "v4 BETA";
+new const AUTHOR[] = "Shediboii";
+
+new const PREFIX[] = "^3[^4.:*[^3Dark^4*.*^3Angel'^1S^4]*:.^3]^1";
+new const MENUPREFIX[] = "\r[\y.:*[Dark*.*Angel'S]*:.\r] \wv4.5.5 - BETA";
+
+new Fragverseny = 0, Fragkorok, Frags, TopMvp;
+new FragJutalmak1, FragJutalmak2, FragJutalmak3;
+new g_Mute[33][33]
+
+#define File "addons/amxmodx/configs/battlepass.ini"
+//Player_Vip[Is_Online][v_time] = get_systime()+60*60*24*Arg_Int[1];
+
+enum _:gune {
+	AK47,
+	M4A1,
+	AWP,
+	DEAGLE,
+	KNIFE
+}
+new const ET_model[] = "models/PT_Shediboii/caseasd.mdl";
+#define FEGYO 115
+#define EREM 21
+#define Music 16
+#define FEGYOSQL 200
+#define LADASZAM 8
+#define COST_KEYDROPUPGRADE 10
+#define COST_CASEDROPUPGRADE 16
+// RANGSYSTEM
+new g_CTWins, g_TEWins;
+new Rang[33], ProfileRank[33], lvlblocked[33];
+new eloELO[33], Float:eloXP[33];
+new rELO[33], Float:rXP[33], Wins[33], battlepass_szint[33], BattlePassPurchased[33];
+//
+
+new sqltupleid = 0;
+
+enum _:PremiumVIP
+{
+	isPremium,
+	PremiumTime
+}
+new Vip[33][PremiumVIP]
+enum _:FragInfos
+{
+    FragerKills,
+    FragerDeaths
+}
+new FragRacers[33][FragInfos];
+
+enum _:MusicDatas
+{
+    MusicKitName[64],
+    MusicLocation[64],
+    Float:MusicKitPound_D,
+    MusicKitPound_P
+}
+new mvpr_have_selectedkit[33];
+new mvpr_kit[Music][33], g_MVPoints[33]
+
+enum _:stats_Properties
+{
+  Name[32],
+  Kills, //deathM
+  HSs, //deathM
+  Deaths, //deathM
+  AllHitCount,
+  AllShotCount
+}
+new Top15_list[15][stats_Properties];
+new Player_Stats[33][stats_Properties];
+new Menu_EremSelected[33];
+new Equipmented_Erem[33];
+enum _:Erem_Properties
+{
+  erem_id,
+  erem_name[50],
+  erem_text[300],
+  CollectedTime[50],
+  erem_type[3]
+}
+enum _:BattlepassC { Names[32]};
+new Erem[33][Erem_Properties];
+
+new AllRegistedRank;
+new p_playernum;
+//CVARS
+//MENTÉS
+new g_Id[33];
+//MENTÉS
+new gWPCT;
+new gWPTE;
+new maxkor, aSync
+new String[512], Float:EXPT[33], erdem[33];
+new Lada[LADASZAM][33]
+new LadaK[LADASZAM][33]
+new Elhasznal[5][33], masodpercek[33];
+new g_korkezdes, g_VipTime[33], g_Vip[33], nyolesNev[33][32], nyid[33], nyolesl[33];
+new g_Jutalom[5][33], g_QuestMVP[33], g_QuestHead[33], g_Quest[33], g_QuestKills[2][33], g_QuestWeapon[33], Float:g_dollarjutalom[33], g_ASD[33], szinesmenu[33], Buy[33];
+new g_Kicucc[33], Float:g_Erteke[33], bool:g_StatTrakBeKi[33], OsszesKirakott[4], SelectedStatTrak[5][33], g_ChooseThings[3][33], skinkuldes[33], targykuldes[33]
+new Float:g_dollar[33], name[33][32], hs[33], hl[33], oles[33], premiumpont[33], g_Maxplayers, g_SkinBeKi[33], g_Admin_Level[33], g_tester[33];
+new g_Tools[2][33], g_NameTagKey, bool:g_NameTagBeKi[33], g_Kirakva[33], HudOff[33], Send[33], TempID
+const KEYSMENU = MENU_KEY_1|MENU_KEY_2|MENU_KEY_3|MENU_KEY_4|MENU_KEY_5|MENU_KEY_6|MENU_KEY_7|MENU_KEY_8|MENU_KEY_9|MENU_KEY_0;
+new bool:g_NameTagBeKiSend[33], bool:g_StatTrakBeKiSend[33], g_kUserID[33], targyakfogadasa[33], dSync, bSync, cSync, Darkpont[33], NyeremenyOles[33];
+new g_Chat_Prefix[33][32], VanPrefix[33]
+new Selectedgun[gune][33];
+new Handle:g_SqlTuple;
+new Array:g_Admins;
+enum _:TEAMS {TE, CT};
+new g_Awps[TEAMS];
+new Ajandekcsomag[33], gmsg_SetFOV, Vane[33]
+
+enum _:LoadDatass {
+	PiacraHelyezheto,
+	GunName[64],
+	ModelName[64],
+	Rarity[8],
+	EntName[8]
+} 
+enum _:LoadEntities {
+	ModelName[64],
+	EntName[8]
+} 
+/*
+new const ToolNevek[][] = {
+	"StatTrak* Tool",
+	"Névcédula"
+}
+*/
+enum _:AdminData{
+	Id,
+	Name[32],
+	Permission
+}
+enum _:playersys
+{
+	Id,
+	Float:EXP,
+	SSzint,
+	steamid[32],
+	f_PlayerNames[64],
+	FragWins,
+	FragWinsTop1,
+	FragWinsTop2,
+	FragWinsTop3,
+    CaseSelectedSlot,
+    SkinDisplay,
+    InHandWepInvSlot,
+    ToolsStattrak,
+    ToolsNametag,
+    NowRank
+}
+new Player[33][playersys];
+enum _:vip_Properties
+{
+	v_id,
+	v_isVip,
+	v_time,
+	v_moneydrop,
+	v_casedrop,
+	v_keydrop
+}
+new Player_Vip[33][vip_Properties];
+enum _:BattlePassProperties
+{
+	Purchased,
+	Level
+}
+new const FegyverInfo[][LoadDatass] = {
+	{0, "AK47 | Default", "models/v_ak47.mdl", 0, CSW_AK47}, 
+	{0, "M4A1 | Default", "models/v_m4a1.mdl", 0, CSW_M4A1}, //13
+	{0, "AWP | Default", "models/v_awp.mdl", 0, CSW_AWP}, //26
+	{0, "DEAGLE | Default", "models/v_deagle.mdl", 0, CSW_DEAGLE}, //39
+	{0, "Kés", "models/v_knife.mdl", 0, CSW_KNIFE}, //50
+	{1, "AK47 | Anubis", "models/darkangels1/anubis.mdl", 1, CSW_AK47}, 
+	{1, "AK47 | Aim Technology", "models/darkangels1/aimtech.mdl", 2, CSW_AK47}, 
+	{1, "AK47 | Marihuana", "models/darkangels1/marihuana.mdl", 3, CSW_AK47},
+	{1, "AK47 | Dragon King", "models/darkangels1/dragonking.mdl", 4, CSW_AK47},
+	{1, "AK47 | Graphics Light", "models/darkangels1/graphicslight.mdl", 5, CSW_AK47},
+	{1, "AK47 | Next Technology", "models/darkangels1/nexttech.mdl", 6, CSW_AK47},
+	{1, "AK47 | Ono", "models/darkangels1/ono.mdl", 7, CSW_AK47},
+	{1, "AK47 | Paladin", "models/darkangels1/paladin.mdl", 8, CSW_AK47},
+	{1, "AK47 | Polar Bear", "models/darkangels1/polarbear.mdl", 9, CSW_AK47}, 
+	{1, "AK47 | Pride", "models/darkangels1/pride.mdl", 10, CSW_AK47},
+	{1, "AK47 | Purple", "models/darkangels1/purple.mdl", 11, CSW_AK47},
+	{1, "AK47 | Red Force", "models/darkangels1/redforce.mdl", 12, CSW_AK47},
+
+	{1, "M4A1 | Asiimov", "models/darkangels1/asiimov.mdl", 1, CSW_M4A1},
+	{1, "M4A1 | Chanticos", "models/darkangels1/chanticos.mdl", 2, CSW_M4A1},
+	{1, "M4A1 | Dragon Lore", "models/darkangels1/dragon1.mdl", 3, CSW_M4A1}, 
+	{1, "M4A1 | Fire", "models/darkangels1/fire1.mdl", 4, CSW_M4A1},
+	{1, "M4A1 | Flashback", "models/darkangels1/flashback.mdl", 5, CSW_M4A1},
+	{1, "M4A1 | Frontside Misty", "models/darkangels1/frontside.mdl", 6, CSW_M4A1},
+	{1, "M4A1 | Golden Coil", "models/darkangels1/golden.mdl", 7, CSW_M4A1},
+	{1, "M4A1 | Grand Supreme", "models/darkangels1/supreme.mdl", 8, CSW_M4A1},
+	{1, "M4A1 | Hellfire", "models/darkangels1/hellfire.mdl", 9, CSW_M4A1},
+	{1, "M4A1 | Lava", "models/darkangels1/lava.mdl", 10, CSW_M4A1},
+	{1, "M4A1 | Nuclear leek", "models/darkangels1/nuclear.mdl", 11, CSW_M4A1},
+	{1, "M4A1 | Pathfinder", "models/darkangels1/pathfinder.mdl", 12, CSW_M4A1},
+
+	{1, "AWP | Blue Batik", "models/darkangels1/bluebatik.mdl", 1, CSW_AWP},
+	{1, "AWP | Fever Dream", "models/darkangels1/feverdream.mdl", 2, CSW_AWP},
+	{1, "AWP | Green Camo", "models/darkangels1/greencamo.mdl", 3, CSW_AWP},
+	{1, "AWP | Green Glass", "models/darkangels1/greenglass.mdl", 4, CSW_AWP},
+	{1, "AWP | Hyper Beast", "models/darkangels1/hyperbeast2.mdl", 5, CSW_AWP},
+	{1, "AWP | Krasny", "models/darkangels1/krasny.mdl", 6, CSW_AWP},
+	{1, "AWP | Lesnoy", "models/darkangels1/lesnoy.mdl", 7, CSW_AWP},
+	{1, "AWP | Lines", "models/darkangels1/lines.mdl", 8, CSW_AWP},
+	{1, "AWP | Medusa", "models/darkangels1/medusa.mdl", 9, CSW_AWP},
+	{1, "AWP | Oni Taiji", "models/darkangels1/onitaiji1.mdl", 10, CSW_AWP},
+	{1, "AWP | Phobos", "models/darkangels1/phobos.mdl", 11, CSW_AWP},
+	{1, "AWP | Raptor", "models/darkangels1/raptor.mdl", 12, CSW_AWP}, //40
+
+	{1, "DEAGLE | CSteel", "models/darkangels/deagle/csteel.mdl", 1, CSW_DEAGLE},
+	{1, "DEAGLE | Valentin", "models/darkangels/deagle/valentin.mdl", 2, CSW_DEAGLE},
+	{1, "DEAGLE | Hypnotic", "models/darkangels/deagle/hypnotic.mdl", 3, CSW_DEAGLE},
+	{1, "DEAGLE | Blaze", "models/darkangels/deagle/blaze.mdl", 4, CSW_DEAGLE},
+	{1, "DEAGLE | Biohazard", "models/darkangels/deagle/biohazard.mdl", 5, CSW_DEAGLE},
+	{1, "DEAGLE | Golden Rose", "models/darkangels/deagle/goldenrose.mdl", 6, CSW_DEAGLE},
+	{1, "DEAGLE | Engraved", "models/darkangels/deagle/engraved.mdl", 7, CSW_DEAGLE},
+	{1, "DEAGLE | Jungle", "models/darkangels/deagle/jungle.mdl", 8, CSW_DEAGLE},
+	{1, "DEAGLE | Old Dragon", "models/darkangels/deagle/olddragon.mdl", 9, CSW_DEAGLE},
+	{1, "DEAGLE | Asiimov", "models/darkangels/deagle/asiimov.mdl", 10, CSW_DEAGLE}, //50
+
+	{1, "Bayonett Crimsonweb", "models/darkangels/kes_new/bayonet_crimsonweb.mdl", 1, CSW_KNIFE},
+	{1, "Bayonett Lore", "models/darkangels/kes_new/bayonet_lore.mdl", 2, CSW_KNIFE},
+	{1, "Bayonett Tigertooth", "models/darkangels/kes_new/bayonet_tigertooth.mdl", 3, CSW_KNIFE},
+	{1, "Bowie Casehardened", "models/darkangels/kes_new/bowie_casehardened.mdl", 4, CSW_KNIFE},
+	{1, "Butterfly Asiimov", "models/darkangels/kes_new/butterfly_asiimov.mdl", 5, CSW_KNIFE},
+	{1, "Butterfly Fade", "models/darkangels/kes_new/butterfly_fade.mdl", 6, CSW_KNIFE},
+	{1, "Flip Autotronic", "models/darkangels/kes_new/flip_autotronic.mdl", 7, CSW_KNIFE},
+	{1, "Flip Crimsonweb", "models/darkangels/kes_new/flip_crimsonweb_B.mdl", 8, CSW_KNIFE},
+	{1, "Flip Gamma", "models/darkangels/kes_new/flip_gamma.mdl", 9, CSW_KNIFE},
+	{1, "Flip Lore", "models/darkangels/kes_new/flip_lore.mdl", 10, CSW_KNIFE},
+	{1, "Gut Autotronic", "models/darkangels/kes_new/gut_autotronic.mdl", 11, CSW_KNIFE},
+	{1, "Gut Crimsonweb", "models/darkangels/kes_new/gut_crimsonweb.mdl", 12, CSW_KNIFE},
+	{1, "Huntsman", "models/darkangels/kes_new/huntsman.mdl", 13, CSW_KNIFE},
+	{1, "Huntsman Asiimov", "models/darkangels/kes_new/huntsman_asiimov.mdl", 14, CSW_KNIFE},
+	{1, "Huntsman Casehadened", "models/darkangels/kes_new/huntsman_casehardened.mdl", 15, CSW_KNIFE},
+	{1, "Karambit", "models/darkangels/kes_new/karambit.mdl", 17, CSW_KNIFE},
+	{1, "Vibrátor", "models/darkangels1/vibrator.mdl", 16, CSW_KNIFE},
+	{1, "Karambit Gamma", "models/darkangels/kes_new/karambit_gamma.mdl", 18, CSW_KNIFE},
+	{1, "Karambit lore", "models/darkangels/kes_new/karambit_lore.mdl", 19, CSW_KNIFE},
+	{1, "M9 Bayonett", "models/darkangels/kes_new/m9bayonet.mdl", 20, CSW_KNIFE},
+	{1, "M9 Bayonett Autotronic", "models/darkangels/kes_new/m9bayonet_autotronic.mdl", 21, CSW_KNIFE},
+	{1, "M9 Bayonett Lore", "models/darkangels/kes_new/m9bayonet_lore.mdl", 22, CSW_KNIFE},
+	{1, "M9 Bayonett Marblefade", "models/darkangels/kes_new/m9bayonet_marblefade.mdl", 23, CSW_KNIFE}, 
+	{1, "AK47 | Redline", "models/darkangels1/redline.mdl", 13, CSW_AK47},
+	{1, "Karambit Speedbeast", "models/darkangels/versus/SpeedBeast.mdl", 23, CSW_KNIFE},  //75
+	{1, "Skeleton Night Stripe", "models/darkangels/versus/NightStripe.mdl", 23, CSW_KNIFE}, 
+	{1, "Karambit Cyberium", "models/darkangels/versus/Cyberium.mdl", 23, CSW_KNIFE}, 
+	{1, "Karambit Doppler Sapphire", "models/darkangels/versus/DopplerSapphire.mdl", 23, CSW_KNIFE}, 
+	{1, "Gut Autotronic", "models/darkangels/versus/Autotronic.mdl", 23, CSW_KNIFE},  //79 | 80
+	{0, "AK47 | Black Ice", "models/darkangels/blackice/ak47.mdl", 23, CSW_AK47},  //75
+	{0, "M4A1 | Black Ice", "models/darkangels/blackice/m4a1.mdl", 23, CSW_M4A1}, 
+	{0, "AWP | Black Ice", "models/darkangels/blackice/awp.mdl", 23, CSW_AWP}, 
+	{0, "DEAGLE | Black Ice", "models/darkangels/blackice/deagle.mdl", 23, CSW_DEAGLE}, 
+	{0, "AK47 | Cannabis Life", "models/darkangels/cannabis/v_cannabislife_vipak47.mdl", 23, CSW_AK47},  //79
+	{0, "M4A1 | Cannabis Life", "models/darkangels/cannabis/v_cannabislife_vipm4a1.mdl", 23, CSW_M4A1},  //75
+	{0, "AWP | Cannabis Life", "models/darkangels/cannabis/v_cannabislife_vipawp.mdl", 23, CSW_AWP}, 
+	{0, "DEAGLE | Cannabis Life", "models/darkangels/cannabis/v_cannabislife_vipdeagle.mdl", 23, CSW_DEAGLE}, 
+	{0, "Karambit | Black Ice", "models/darkangels/blackice/Karambit.mdl", 23, CSW_KNIFE}, 
+	{0, "Shadow Daggers | Black Ice", "models/darkangels/blackice/Daggers.mdl", 23, CSW_KNIFE},  //79	
+	{0, "Butterfly | Black Ice", "models/darkangels/blackice/Butterfly.mdl", 23, CSW_KNIFE}, 
+	{0, "Karambit | Cannabis Life", "models/darkangels/cannabis/v_cannabislife_vipknife.mdl", 23, CSW_KNIFE},  //79
+	{0, "Prémium | Skeleton Fade", "models/darkangels/premium/skeletonfade.mdl", 23, CSW_KNIFE}, //92 | 93
+	{0, "Prémium | Skeleton Crimson Web", "models/darkangels/premium/skeletoncrimson.mdl", 23, CSW_KNIFE},  //79
+
+	{1, "AK47 | Black Paladin", "models/darkangels/versus/blackpaladin.mdl", 23, CSW_AK47},  //94!!!!!
+	{1, "AK47 | Shadow", "models/darkangels/versus/shadow.mdl", 23, CSW_AK47},  //75
+	{1, "AK47 | Matrica", "models/darkangels/versus/matrica.mdl", 23, CSW_AK47},  //75
+	{1, "AK47 | Illusion", "models/darkangels/versus/illusion.mdl", 23, CSW_AK47},  //75
+	{1, "AK47 | Astronaut", "models/darkangels/versus/astronaut.mdl", 23, CSW_AK47},  //75
+	{1, "M4A1 | Bumblebee", "models/darkangels/versus/bumblebee.mdl", 23, CSW_M4A1}, 
+	{1, "M4A1 | Starladder", "models/darkangels/versus/starladder.mdl", 23, CSW_M4A1}, // 100 
+	{1, "M4A1 | Shark", "models/darkangels/versus/shark.mdl", 23, CSW_M4A1}, 
+	{1, "M4A1 | xRay", "models/darkangels/versus/xray.mdl", 23, CSW_M4A1}, 
+	{1, "M4A1 | Desoltate Space", "models/darkangels/versus/desolate.mdl", 23, CSW_M4A1}, 
+	{1, "AWP | Snow", "models/darkangels/versus/snow.mdl", 23, CSW_AWP}, 
+	{1, "AWP | Bercut", "models/darkangels/versus/bercut.mdl", 23, CSW_AWP}, 
+	{1, "AWP | Rave", "models/darkangels/versus/rave.mdl", 23, CSW_AWP}, 
+	{1, "AWP | Célkereszt", "models/darkangels/versus/zoom.mdl", 23, CSW_AWP}, 
+	{1, "AWP | Superfurry", "models/darkangels/versus/superfurry.mdl", 23, CSW_AWP}, 
+	{1, "DEAGLE | Carp Coi", "models/darkangels/versus/carpcoi.mdl", 23, CSW_DEAGLE}, 
+	{1, "DEAGLE | IDN", "models/darkangels/versus/idn.mdl", 23, CSW_DEAGLE}, 
+	{1, "DEAGLE | Debra", "models/darkangels/versus/debra.mdl", 23, CSW_DEAGLE}, 
+	{1, "DEAGLE | Circuit Board", "models/darkangels/versus/circuit.mdl", 23, CSW_DEAGLE}, 
+	{1, "DEAGLE | Gradient", "models/darkangels/versus/gradient.mdl", 23, CSW_DEAGLE}, //113!
+
+	{1, "AK47 | Neon Revolution", "models/darkangels/privateskin/evi.mdl", 23, CSW_AK47} //114!
+	//{0, "DEAGLE | Gradient", "models/darkangels/versus/gradient.mdl", 23, CSW_DEAGLE} //113!
+}
+new g_Weapons[FEGYO][33]
+new g_GunNames[sizeof(FegyverInfo)][33][100]
+new g_StatTrak[sizeof(FegyverInfo)][33]
+new g_StatTrakKills[sizeof(FegyverInfo)][33]
+new g_msgScreenFade;
+
+public plugin_init()
+{
+	register_plugin(PLUGIN, VERSION, AUTHOR);
+	//=============== | HUD CREATE | ==============
+	aSync = CreateHudSyncObj();
+	dSync = CreateHudSyncObj();
+	cSync = CreateHudSyncObj();
+	//=============== | Client&ServCommands | ==============
+	register_clcmd("say /fegyo", "fegyvermenu");
+	register_clcmd("say /guns", "fegyvermenu");
+	register_clcmd("say /fegyver", "fegyvermenu");
+	register_clcmd("say /nevcedula", "openAddNameTag");
+	//register_clcmd("say /addolas", "m_Addolas", ADMIN_IMMUNITY);
+	
+	register_clcmd("say fragstop", "stopfrag", ADMIN_BAN);
+	register_clcmd("say /sms", "SMSMotd", ADMIN_BAN);
+	register_clcmd("say /oles", "TopOles");
+	register_clcmd("say getsystime", "systiime");
+	register_clcmd("say /szabalyzat", "szabalyzat");
+	register_clcmd("say checkvip", "vipcheck");//openPlayerChooserMute
+	register_clcmd("say teszt", "openPlayerChooserMute");
+	register_clcmd("say /pp", "m_PremiumBolt");
+	register_clcmd("say /htmltest", "htmltest");
+	register_clcmd("say /top15", "CmdTop15");
+	register_clcmd("say /rank", "CmdRank");
+	register_concmd("bn_set_admin", "CmdSetAdmin", _, "<#id> <jog>")
+	register_concmd("bn_set_vip", "CmdSetVIP", _, "<#id> <ido>");
+	//=============== | Events | ==============
+	//register_event("CurWeapon", "ChangeWeapon", "be", "1=1")
+	register_event("DeathMsg","eDeathMsg","a")
+	register_impulse(201, "Ellenorzes");
+	register_logevent("logevent_end", 2, "1=Round_End");
+	RegisterHam(Ham_Spawn,"player","Spawn",1);
+	register_forward(FM_Touch,"ForwardTouch" );
+	//=============== | ChatCommands | ==============
+	register_clcmd("Chat_Prefix", "Chat_Prefix_Hozzaad");
+	register_clcmd("KMENNYISEG", "ObjectSend");
+	register_clcmd("DARAB", "cmdDarabLoad")
+	register_clcmd("Nevcedula_nev", "cmdSetGunName")
+	register_clcmd("DOLLAR_AR", "cmdDollarEladas");
+	register_clcmd("say", "Hook_Say");
+	//=============== | CVARS | ==============
+	maxkor = register_cvar("maxkor", "41");
+	register_event("HLTV", "ujkor", "a", "1=0", "2=0");
+	register_event("TextMsg", "restart_round", "a", "2=#Game_will_restart_in");
+	register_logevent("RoundEnds", 2, "1=Round_End")
+	RegisterHam(Ham_Item_Deploy, "weapon_m4a1", "Change_Weapon", 1);
+	RegisterHam(Ham_Item_Deploy, "weapon_ak47", "Change_Weapon", 1);
+	RegisterHam(Ham_Item_Deploy, "weapon_awp", "Change_Weapon", 1);
+	RegisterHam(Ham_Item_Deploy, "weapon_deagle", "Change_Weapon", 1);
+	RegisterHam(Ham_Item_Deploy, "weapon_knife", "Change_Weapon", 1);
+	RegisterHam(Ham_TakeDamage, "player", "PlayerGetHit");
+	RegisterHam(Ham_Weapon_PrimaryAttack, "weapon_m4a1", "Attack_AutomaticGun", 1);
+	RegisterHam(Ham_Weapon_PrimaryAttack, "weapon_ak47", "Attack_AutomaticGun", 1);
+	RegisterHam(Ham_Weapon_PrimaryAttack, "weapon_mp5navy", "Attack_AutomaticGun", 1);
+	RegisterHam(Ham_Weapon_PrimaryAttack, "weapon_famas", "Attack_AutomaticGun", 1);
+	RegisterHam(Ham_Weapon_PrimaryAttack, "weapon_galil", "Attack_AutomaticGun", 1);
+	RegisterHam(Ham_Weapon_PrimaryAttack, "weapon_aug", "Attack_AutomaticGun", 1);
+	RegisterHam(Ham_Weapon_PrimaryAttack, "weapon_tmp", "Attack_AutomaticGun", 1);
+	RegisterHam(Ham_Weapon_PrimaryAttack, "weapon_mac10", "Attack_AutomaticGun", 1);
+	RegisterHam(Ham_Weapon_PrimaryAttack, "weapon_awp", "Attack_SingleShotGun", 1);
+	RegisterHam(Ham_Weapon_PrimaryAttack, "weapon_deagle", "Attack_SingleShotGun", 1);
+	RegisterHam(Ham_Weapon_PrimaryAttack, "weapon_scout", "Attack_SingleShotGun", 1);
+	//=============== | Lekérések | ==============
+	register_event("SendAudio", "TerrorsWin" , "a", "2&%!MRAD_terwin");
+	register_event("SendAudio", "CTerrorsWin", "a", "2&%!MRAD_ctwin");
+	//register_forward(FM_Voice_SetClientListening, "fwd_voice_setclientlistening")
+	register_forward(FM_Voice_SetClientListening, "OnPlayerTalk")
+	g_Maxplayers = get_maxplayers();
+	register_menu("Admin Info Menu", KEYSMENU, "Admin_Info_Menu_Handler");
+	//=============== | SET TASK | ==============
+	set_task(1.0, "Check",_,_,_,"b");
+	set_task(300.0, "nyeremenyjatek",_,_,_,"b");
+	gmsg_SetFOV = get_user_msgid("SetFOV")
+    g_msgScreenFade = get_user_msgid("ScreenFade");
+}
+public OnPlayerTalk(iReceiver, iSender, iListen)
+{
+	if(iReceiver == iSender)
+		return FMRES_IGNORED
+		
+	if(g_Mute[iReceiver][iSender])
+	{
+		engfunc(EngFunc_SetClientListening, iReceiver, iSender, 0)
+		return FMRES_SUPERCEDE
+	}
+	
+	return FMRES_IGNORED
+}
+
+public fwd_voice_setclientlistening(receiver, sender, listen)
+{
+    if(receiver == sender)
+        return PLUGIN_HANDLED;
+   
+    if(g_Mute[receiver][sender] == 1)
+    {
+        engfunc(EngFunc_SetClientListening, receiver, sender, 0)
+        return PLUGIN_HANDLED
+    }
+    return FMRES_IGNORED
+}
+public szabalyzat(id)
+{
+	show_motd(id, "addons/amxmodx/configs/szabalyzat.txt", "Szabályzat")
+}
+public setwin(id)
+{
+	new Float:xpfloat = random_float(5000.0, 12500.0)
+	//Rang[id] = 14
+	Wins[id] = random(3205)
+	eloELO[id] = random(70000)
+	eloXP[id] = xpfloat
+	Player[id][SSzint] = random_num(11, 22)
+	Erem[7][id] = 1;
+}
+make_ScreenFade(plr, Float:fDuration, red, green, blue, alpha)
+{
+	new i = plr ? plr : get_player();
+	if( !i )
+	{
+		return 0;
+	}
+	
+	message_begin(plr ? MSG_ONE : MSG_ALL, g_msgScreenFade, {0, 0, 0}, plr);
+	write_short(floatround(4096.0 * fDuration, floatround_round));
+	write_short(floatround(4096.0 * fDuration, floatround_round));
+	write_short(4096);
+	write_byte(red);
+	write_byte(green);
+	write_byte(blue);
+	write_byte(alpha);
+	message_end();
+	
+	return 1;
+}
+
+get_player()
+{
+	for(new plr = 0; plr < g_Maxplayers; plr++)
+	{
+		if( is_user_connected(plr) )
+		{
+			return plr;
+		}
+	}
+	
+	return 0;
+}

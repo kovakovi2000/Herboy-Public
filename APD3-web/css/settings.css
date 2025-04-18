@@ -1,0 +1,192 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.button-container {
+  display: flex !important;
+  gap: 20px !important;
+  margin-bottom: 20px !important;
+  justify-content: center !important;
+}
+
+.collapsible {
+  background-color: rgba(0, 0, 0, 0.3) !important;
+  color: white !important;
+  cursor: pointer !important;
+  padding: 10px 15px !important;
+  text-align: center !important;
+  border: none !important;
+  border-radius: 5px !important;
+  font-size: 16px !important;
+  transition: background-color 0.3s ease, transform 0.3s ease !important;
+}
+
+.collapsible:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  transform: scale(1.02);
+  color: white;
+}
+
+.content {
+  display: none;
+  overflow: hidden;
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 10px;
+  animation: slideDown 0.5s ease forwards;
+}
+
+.content.closing {
+  animation: slideUp 0.5s ease forwards;
+}
+
+@keyframes slideDown {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 500px;
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    max-height: 500px;
+    opacity: 1;
+  }
+  to {
+    max-height: 0;
+    opacity: 0;
+  }
+}
+.element {
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+}
+
+.update-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  color: white;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+}
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  color: white;
+}
+
+input[readonly] {
+  background-color: rgba(0, 0, 0, 0.3);
+  cursor: not-allowed;
+}
+
+.update-btn {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.update-btn:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  transform: scale(1.02);
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
+#current-email {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  cursor: not-allowed;
+}
+thead th {
+  text-align: center !important;
+}
+tbody td {
+  text-align: center !important;
+  padding: 10px !important;
+}
+
+.info-icon {
+  font-size: 18px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.info-icon:hover::after {
+  content: "<?php echo addslashes($lang['sec_tooltip']); ?>";
+  display: block;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  top: -100%;
+  left: 100%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  margin-top: 5px;
+  z-index: 10;
+  width: 350px;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+h1 {
+  position: relative;
+  display: inline-block;
+}

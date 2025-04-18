@@ -1,0 +1,1 @@
+rossz helyen jársz kuty

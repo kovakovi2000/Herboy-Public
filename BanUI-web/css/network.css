@@ -1,0 +1,11 @@
+/* Style for dark-themed nodes and edges */
+.vis-network {
+    background-color: #333;
+}
+
+/* Network container full window */
+#network {
+    width: 100vw;
+    height: 100vh;
+    border: 1px solid #444;
+}

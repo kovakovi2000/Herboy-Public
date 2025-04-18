@@ -1,0 +1,10 @@
+{
+    "PREDEFINED_FILES": [
+        "barrel.bmp",
+        "body.bmp",
+        "forearm.bmp",
+        "buttstock.bmp",
+        "rear_sight.bmp",
+        "shell.bmp"
+    ]
+}

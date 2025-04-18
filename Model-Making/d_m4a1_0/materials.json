@@ -1,0 +1,10 @@
+{
+    "PREDEFINED_FILES": [
+        "handle.bmp",
+        "barrel.bmp",
+        "receiver.bmp",
+        "magazine.bmp",
+        "buttstock.bmp",
+        "silencer.bmp"
+    ]
+}

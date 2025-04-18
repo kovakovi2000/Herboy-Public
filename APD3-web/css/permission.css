@@ -1,0 +1,86 @@
+.sty_none { border:5px solid #ffffff; background-color: #ffffff; }
+.sty_vip { border:5px solid #a0ac00; background-color: #a0ac00; }
+.sty_premiumvip { border:5px solid #FFD700; background-color: #FFD700; }
+
+.sty_ac { border:5px solid #f04124; background-color: #f04124; }
+/* .sty_dev { border:5px solid #ffffff; background-color: #ffffff; font-weight: bold; color: black; } */
+.sty_owner { border:5px solid #c000b0; background-color:#c000b0; }
+.sty_headadmin { border:5px solid #0003d1; background-color:#0003d1; }
+.sty_admin { border:5px solid #00aaaa; background-color:#00aaaa; }
+.sty_player { border:5px solid #009c15; background-color:#009c15; }
+.sty_banned { border:5px solid #ff0000; background-color:#ff0000; font-weight: bold; }
+.sty_notfound { border:5px solid #464646; background-color:#464646; }
+.sty_sparkle {
+    background-image: url(../images/sparkling.gif) !important;
+    width: 100%;
+    height: 100%;
+}
+.sty_premiumvipplus { 
+    font-weight: bold;
+    color: black;
+    border: 5px solid transparent;
+    border-image: linear-gradient(124deg, #ffd700, #ffffff, #ffd700, #ffffff, #ffd700, #ffffff, #ffd700, #ffffff, #ffd700, #ffffff, #ffd700, #ffffff, #ffd700, #ffffff, #ffd700, #ffffff);
+    border-image-slice: 1800% 1800%;
+
+    background: linear-gradient(124deg, #ffd700, #ffffff, #ffd700, #ffffff, #ffd700, #ffffff, #ffd700, #ffffff, #ffd700, #ffffff, #ffd700, #ffffff, #ffd700, #ffffff, #ffd700, #ffffff);
+    background-size: 1800% 1800%;
+
+    -webkit-animation: goldrainbow 18s ease infinite;
+    -z-animation: goldrainbow 18s ease infinite;
+    -o-animation: goldrainbow 18s ease infinite;
+        animation: goldrainbow 18s ease infinite;}
+
+    @-webkit-keyframes goldrainbow {
+        0%{background-position:0% 82%}
+        50%{background-position:100% 19%}
+        100%{background-position:0% 82%}
+    }
+    @-moz-keyframes goldrainbow {
+        0%{background-position:0% 82%}
+        50%{background-position:100% 19%}
+        100%{background-position:0% 82%}
+    }
+    @-o-keyframes goldrainbow {
+        0%{background-position:0% 82%}
+        50%{background-position:100% 19%}
+        100%{background-position:0% 82%}
+    }
+    @keyframes goldrainbow { 
+        0%{background-position:0% 82%}
+        50%{background-position:100% 19%}
+        100%{background-position:0% 82%}
+}
+
+.sty_dev { 
+    border: 5px solid transparent;
+    border-image: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+    border-image-slice: 1800% 1800%;
+
+    background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+    background-size: 1800% 1800%;
+
+    -webkit-animation: rainbow 18s ease infinite;
+    -z-animation: rainbow 18s ease infinite;
+    -o-animation: rainbow 18s ease infinite;
+        animation: rainbow 18s ease infinite;}
+
+    @-webkit-keyframes rainbow {
+        0%{background-position:0% 82%}
+        50%{background-position:100% 19%}
+        100%{background-position:0% 82%}
+    }
+    @-moz-keyframes rainbow {
+        0%{background-position:0% 82%}
+        50%{background-position:100% 19%}
+        100%{background-position:0% 82%}
+    }
+    @-o-keyframes rainbow {
+        0%{background-position:0% 82%}
+        50%{background-position:100% 19%}
+        100%{background-position:0% 82%}
+    }
+    @keyframes rainbow { 
+        0%{background-position:0% 82%}
+        50%{background-position:100% 19%}
+        100%{background-position:0% 82%}
+}

@@ -1,0 +1,61 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  min-height: 100vh; /* Az oldal magasságának beállítása */
+  box-sizing: border-box;
+}
+
+/* A fix csík a 3 link felett */
+.footer-bar {
+  position: fixed;
+  bottom: 29px; /* A csík elhelyezése a linkek felett */
+  width: 100%;
+  height: 1px; /* Vékony csík */
+  background-color: rgba(255, 255, 255, 0.1); /* Fehér csík enyhe átlátszósággal */
+  z-index: 1000;
+}
+
+/* Az opciók (ÁSZF, stb.) a csík alatt, enyhe sötétítéssel */
+.footer-links {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5); /* Enyhén sötétített átlátszó háttér */
+  padding: 3.0px 0; /* Hely hozzáadása a linkek körül */
+  z-index: 100;
+}
+
+/* Az opciók stílusa */
+.footer-links a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+/* Hover hatás a linkekre */
+.footer-links a:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.footer-bar, .footer-links {
+  display: block;
+}
+
+/* Mobil nézetben elrejteni a 'Copyright' linket */
+@media (max-width: 767px) {
+  .footer-links a[href$="by.php"] {
+      display: none;
+  }
+}
+
+/* Mobil nézetben elrejteni a footer-t, ha a body osztály 'profile' */
+@media (max-width: 767px) {
+  body.profile .footer-bar,
+  body.profile .footer-links {
+      display: none;
+  }
+}

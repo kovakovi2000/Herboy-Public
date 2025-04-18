@@ -1,0 +1,4 @@
+*.amxx
+*.bak
+pyscript/config.json
+.vscode/settings.json

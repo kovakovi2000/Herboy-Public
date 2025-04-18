@@ -1,0 +1,83 @@
+[hu]
+CH_MENU_CROSSHAIR = Célkereszt Menü
+CH_MENU_TYPE = Típus módosítás \rJelenlegi:
+CH_MENU_COLOR = Szín módosítás \rJelenlegi:
+CH_MENU_RESET = Visszaállítás
+CH_MENU_TYPE_DEFAULT = Típus módosítás \dJelenlegi: Alap
+CH_COLOR_RED = Piros
+CH_COLOR_YELLOW = Sárga
+CH_COLOR_GREEN = Zöld
+CH_COLOR_PURPLE = Lila
+CH_COLOR_CYAN = Cián
+
+[en]
+CH_MENU_CROSSHAIR = Crosshair Menu
+CH_MENU_TYPE = Change Type \rCurrent:
+CH_MENU_COLOR = Change Color \rCurrent:
+CH_MENU_RESET = Reset
+CH_MENU_TYPE_DEFAULT = Change Type \dCurrent: Default
+CH_COLOR_RED = Red
+CH_COLOR_YELLOW = Yellow
+CH_COLOR_GREEN = Green
+CH_COLOR_PURPLE = Purple
+CH_COLOR_CYAN = Cyan
+
+[ro]
+CH_MENU_CROSSHAIR = Meniu Țintă
+CH_MENU_TYPE = Modificare Tip \rCurent:
+CH_MENU_COLOR = Modificare Culoare \rCurent:
+CH_MENU_RESET = Resetare
+CH_MENU_TYPE_DEFAULT = Modificare Tip \dCurent: Implicit
+CH_COLOR_RED = Roșu
+CH_COLOR_YELLOW = Galben
+CH_COLOR_GREEN = Verde
+CH_COLOR_PURPLE = Mov
+CH_COLOR_CYAN = Cyan
+
+[sk]
+CH_MENU_CROSSHAIR = Menu Cieľa
+CH_MENU_TYPE = Zmeniť Typ \rAktuálne:
+CH_MENU_COLOR = Zmeniť Farbu \rAktuálne:
+CH_MENU_RESET = Obnoviť
+CH_MENU_TYPE_DEFAULT = Zmeniť Typ \dAktuálne: Predvolené
+CH_COLOR_RED = Červená
+CH_COLOR_YELLOW = Žltá
+CH_COLOR_GREEN = Zelená
+CH_COLOR_PURPLE = Fialová
+CH_COLOR_CYAN = Azúrová
+
+[sr]
+CH_MENU_CROSSHAIR = Meni Nişana
+CH_MENU_TYPE = Izmeni Tip \rTrenutni:
+CH_MENU_COLOR = Izmeni Boju \rTrenutni:
+CH_MENU_RESET = Resetuj
+CH_MENU_TYPE_DEFAULT = Izmeni Tip \dTrenutni: Podrazumevani
+CH_COLOR_RED = Crvena
+CH_COLOR_YELLOW = Žuta
+CH_COLOR_GREEN = Zelena
+CH_COLOR_PURPLE = Ljubičasta
+CH_COLOR_CYAN = Cijan
+
+[de]
+CH_MENU_CROSSHAIR = Fadenkreuz-Menü
+CH_MENU_TYPE = Typ ändern \rAktuell:
+CH_MENU_COLOR = Farbe ändern \rAktuell:
+CH_MENU_RESET = Zurücksetzen
+CH_MENU_TYPE_DEFAULT = Typ ändern \dAktuell: Standard
+CH_COLOR_RED = Rot
+CH_COLOR_YELLOW = Gelb
+CH_COLOR_GREEN = Grün
+CH_COLOR_PURPLE = Lila
+CH_COLOR_CYAN = Cyan
+
+[au]
+CH_MENU_CROSSHAIR = Meniu Prytsilennia
+CH_MENU_TYPE = Zminyty Typ \rPotočnyi:
+CH_MENU_COLOR = Zminyty Kolir \rPotočnyi:
+CH_MENU_RESET = Sкиnuty
+CH_MENU_TYPE_DEFAULT = Zminyty Typ \dPotočnyi: Standartnyi
+CH_COLOR_RED = Červonyi
+CH_COLOR_YELLOW = Žovtyi
+CH_COLOR_GREEN = Zelenyi
+CH_COLOR_PURPLE = Fioletovyi
+CH_COLOR_CYAN = Biryuzovyi

@@ -1,0 +1,41 @@
+#error_box {
+    top: 40%;
+    left: 40%;
+    position: absolute;
+    z-index: 999999999;
+    background-color: #3d3d3d;
+    border: 1px solid #d3d3d3;
+    border-radius: 10px;
+    text-align: center;
+    resize: both;
+}
+
+#error_box #error_list {
+    width: 400px;
+    height: 400px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+#error_box #error_list p {
+    margin: 10px 0 10px 0;
+    padding: 0 10px 0 10px;
+    color: white;
+    text-align: left;
+    background-color: #141414;
+}
+
+#error_box #error_boxheader {
+    padding: 10px;
+    cursor: move;
+    z-index: 999999999;
+    background-color: #c70c2b;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+#error_box #error_boxheader .error_button {
+    font-size: 15px !important; 
+    margin-left: 15px; 
+    cursor: pointer; float:right
+}

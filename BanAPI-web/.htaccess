@@ -1,0 +1,37 @@
+# Deny access to all files by default
+<FilesMatch ".*">
+    Order Deny,Allow
+    Deny from all
+</FilesMatch>
+
+# Allow access to banv2.php
+<Files "banv2.php">
+    Order Allow,Deny
+    Allow from all
+</Files>
+
+
+# Allow access to banv2.php
+<Files "portupdate.php">
+    Order Allow,Deny
+    Allow from all
+</Files>
+
+
+# Allow access to banv2.php
+<Files "ensure.php">
+    Order Allow,Deny
+    Allow from all
+</Files>
+
+# Allow access to .html files in the current folder
+<FilesMatch "\.html$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>
+
+# Allow access to banv2.php
+<Files "reports.php">
+    Order Allow,Deny
+    Allow from all
+</Files>

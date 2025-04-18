@@ -1,0 +1,137 @@
+CREATE TABLE version_restrict (
+    steamid VARCHAR(32) NOT NULL,
+    type ENUM('lower', 'equal', 'higher') NOT NULL,
+    version_build INT NOT NULL,
+    PRIMARY KEY (steamid)
+);
+
+CREATE TABLE amx_whitelist_blacklist (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    indicator_type ENUM('ip', 'steamid', 'ip_interval', 'asn', 'UUID', 'regex') NULL,
+    indicator_value VARCHAR(255) NULL,
+    is_whitelist BOOLEAN NULL,
+    excludes TEXT NULL,
+    note TEXT NULL,
+    steam_bypass BOOLEAN DEFAULT FALSE,
+    priority INT NULL,
+    scope ENUM('current', 'local', 'synced') DEFAULT 'current', -- Default to 'current'
+    start_time DATETIME DEFAULT CURRENT_TIMESTAMP,
+    expire_time DATETIME NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE INDEX idx_indicator ON amx_whitelist_blacklist(indicator_type, indicator_value);
+CREATE INDEX idx_scope_priority_whitelist ON amx_whitelist_blacklist(scope, priority, is_whitelist);
+CREATE INDEX idx_updated_at ON amx_whitelist_blacklist(updated_at);
+CREATE INDEX idx_time_range ON amx_whitelist_blacklist(start_time, expire_time);
+CREATE INDEX idx_is_whitelist ON amx_whitelist_blacklist(is_whitelist);
+
+-- ########################################################################### --
+
+CREATE TABLE amx_cookie_v2 (
+    UUID CHAR(36) PRIMARY KEY,
+    firstseen DATETIME NOT NULL,
+    lastseen DATETIME NOT NULL,
+    data LONGTEXT NOT NULL,
+    steamid_indicators TEXT,
+    ip_indicators TEXT
+);
+
+DELIMITER $$
+
+CREATE TRIGGER before_amx_cookie_v2_insert 
+BEFORE INSERT ON amx_cookie_v2
+FOR EACH ROW
+BEGIN
+    DECLARE steamid_json TEXT;
+    DECLARE ip_json TEXT;
+    DECLARE steamid_element TEXT;
+    DECLARE ip_element TEXT;
+    DECLARE steamid_count INT DEFAULT 0;
+    DECLARE ip_count INT DEFAULT 0;
+    DECLARE idx INT DEFAULT 0;
+
+    SET steamid_json = JSON_EXTRACT(NEW.data, '$.STEAMIDs');
+    SET ip_json = JSON_EXTRACT(NEW.data, '$.IPs');
+
+    SET steamid_count = JSON_LENGTH(steamid_json);
+    SET ip_count = JSON_LENGTH(ip_json);
+
+    SET NEW.steamid_indicators = '';
+    SET NEW.ip_indicators = '';
+
+    WHILE idx < steamid_count DO
+        SET steamid_element = JSON_UNQUOTE(JSON_EXTRACT(steamid_json, CONCAT('$[', idx, '].indicator')));
+        IF idx > 0 THEN
+            SET NEW.steamid_indicators = CONCAT(NEW.steamid_indicators, ',', steamid_element);
+        ELSE
+            SET NEW.steamid_indicators = steamid_element;
+        END IF;
+        SET idx = idx + 1;
+    END WHILE;
+
+    SET idx = 0;
+
+    WHILE idx < ip_count DO
+        SET ip_element = JSON_UNQUOTE(JSON_EXTRACT(ip_json, CONCAT('$[', idx, '].indicator')));
+        IF idx > 0 THEN
+            SET NEW.ip_indicators = CONCAT(NEW.ip_indicators, ',', ip_element);
+        ELSE
+            SET NEW.ip_indicators = ip_element;
+        END IF;
+        SET idx = idx + 1;
+    END WHILE;
+
+END $$
+
+DELIMITER ;
+
+DELIMITER $$
+
+CREATE TRIGGER before_amx_cookie_v2_update 
+BEFORE UPDATE ON amx_cookie_v2
+FOR EACH ROW
+BEGIN
+    DECLARE steamid_json TEXT;
+    DECLARE ip_json TEXT;
+    DECLARE steamid_element TEXT;
+    DECLARE ip_element TEXT;
+    DECLARE steamid_count INT DEFAULT 0;
+    DECLARE ip_count INT DEFAULT 0;
+    DECLARE idx INT DEFAULT 0;
+
+    SET steamid_json = JSON_EXTRACT(NEW.data, '$.STEAMIDs');
+    SET ip_json = JSON_EXTRACT(NEW.data, '$.IPs');
+
+    SET steamid_count = JSON_LENGTH(steamid_json);
+    SET ip_count = JSON_LENGTH(ip_json);
+
+    SET NEW.steamid_indicators = '';
+    SET NEW.ip_indicators = '';
+
+    WHILE idx < steamid_count DO
+        SET steamid_element = JSON_UNQUOTE(JSON_EXTRACT(steamid_json, CONCAT('$[', idx, '].indicator')));
+        IF idx > 0 THEN
+            SET NEW.steamid_indicators = CONCAT(NEW.steamid_indicators, ',', steamid_element);
+        ELSE
+            SET NEW.steamid_indicators = steamid_element;
+        END IF;
+        SET idx = idx + 1;
+    END WHILE;
+
+    SET idx = 0;
+
+    WHILE idx < ip_count DO
+        SET ip_element = JSON_UNQUOTE(JSON_EXTRACT(ip_json, CONCAT('$[', idx, '].indicator')));
+        IF idx > 0 THEN
+            SET NEW.ip_indicators = CONCAT(NEW.ip_indicators, ',', ip_element);
+        ELSE
+            SET NEW.ip_indicators = ip_element;
+        END IF;
+        SET idx = idx + 1;
+    END WHILE;
+
+END $$
+
+DELIMITER ;

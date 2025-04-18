@@ -1,0 +1,66 @@
+.tr_all {
+    cursor: pointer;
+}
+
+.tr_banned {
+    background-color: rgba(255,0,0,0.2) !important;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+.tr_banned:hover {
+    background-color: rgba(255,0,0,0.5) !important;
+}
+
+.tr_online {
+    background-color: rgba(0,255,36,0.1) !important;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+.tr_online:hover {
+    background-color: rgba(0,255,36,0.4) !important;
+}
+
+.tr_normal {
+    background-color: rgba(0,0,0,0.0);
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+.tr_normal:hover {
+    background-color: rgba(255,255,255,0.3);
+}
+
+.tr_selected{
+    background-color: rgba(255,255,255,0.3);
+}
+
+.tr_banned_selected{
+    background-color: rgba(255,0,0,0.5);
+}
+
+.profile-clickable{
+    float: left;
+    cursor: pointer;
+    margin: 0;
+    position: relative;
+    top: 50%;
+}
+
+.label {
+    margin-top: 1.5px;
+    position: relative;
+}
+
+.profile-table-container {
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.table-slider {
+    height: min-content;
+    width: 100%;
+}
+
+.table-header {
+    background-color: rgba(100, 100, 100, 0.4); 
+    height: 50px;
+}

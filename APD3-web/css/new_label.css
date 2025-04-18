@@ -1,0 +1,33 @@
+.label {
+  padding-left: 1em;
+  padding-right: 1em;
+  font-weight: 500;
+  padding-top: 0.3em;
+  padding-bottom: 0.4em;
+}
+
+.profile-clickable {
+  text-decoration: none;
+  width: fit-content;
+  color: #fff;
+}
+
+.profile-clickable:hover {
+  color: #d8d8d8;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.profile-clickable:focus {
+  color: #d8d8d8;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+.profile-clickable:active {
+  color: #d8d8d8;
+  text-decoration: none;
+  cursor: pointer;
+}
+

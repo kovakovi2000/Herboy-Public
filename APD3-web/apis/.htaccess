@@ -1,0 +1,7 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Block direct access to all files in this directory
+    Order deny,allow
+    Deny from all
+</IfModule>

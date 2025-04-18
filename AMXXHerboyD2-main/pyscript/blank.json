@@ -1,0 +1,25 @@
+{
+    "monitored_folder": "C:/Users/shedi/Desktop/compajled",
+    "ensure_wait_time": 1,
+    "servers": [
+        {
+            "name": "HerBoy TEST",
+            "address": "srv.herboyd2.hu",
+            "port": 2022,
+            "username": "shedi.0bfdb15f",
+            "password": "",
+            "upload_path": "/cstrike/addons/amxmodx/plugins/",
+            "ensure": true
+        },
+        {
+            "name": "HerBoy D2",
+            "address": "srv.herboyd2.hu",
+            "port": 2022,
+            "username": "shedi.c0b73224",
+            "password": "",
+            "upload_path": "/cstrike/addons/amxmodx/plugins/",
+            "ensure": false
+        }
+    ],
+    "last_used_server": "HerBoy TEST"
+}

@@ -1,0 +1,12 @@
+{
+    "PREDEFINED_FILES": [
+        "wood.bmp",
+        "lower_body.bmp",
+        "forearm.bmp",
+        "barrel.bmp",
+        "upper_body.bmp",
+        "reticle.bmp",
+        "handle.bmp",
+        "magazine.bmp"
+    ]
+}

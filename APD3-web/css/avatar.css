@@ -1,0 +1,104 @@
+.avatar_banned_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: rgba(255, 0, 0, 0.5);
+    z-index: 2;
+}
+
+.avatar_banned {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    z-index: 3;
+}
+
+.avatar_sparkle {
+    background-image: url(../images/sparkling.gif) !important;
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    z-index: 2;
+}
+
+.avatar-container {
+    width:500px;
+    height:500px;
+    position: relative;
+    text-align: center;
+
+    transform: scale(1.0);
+    /* left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
+}
+
+.avatar-container .avatar-fake_border {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border: 0px solid white;
+}
+
+.avatar-img {
+    position: absolute;
+    width: 92%;
+    height: 92%;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.avatar-fake_border .state_icon{
+    position: absolute;
+    right: 12%;
+    bottom: 10%;
+    height: 10%;
+    width: 10%;
+    border: 0px solid white;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    z-index: 3;
+}
+
+.avatar-fake_border .state_icon .dot{
+    width: 70%;
+    height: 70%;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+}
+
+.avatar-fake_border .green_icon
+{
+    background-color: #4cd137;
+}
+
+.avatar-fake_border .red_icon {
+    background-color: #ed1818;
+}

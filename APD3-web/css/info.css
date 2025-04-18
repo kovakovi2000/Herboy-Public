@@ -1,0 +1,68 @@
+.table {
+  width: 600px;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  padding: 2px 5px;
+  white-space: nowrap;
+  width: 1px;
+  cursor: pointer;
+}
+
+.profile-clickable {
+  width: max-content;
+  display: inline-block;
+}
+
+.zebra-stripes td.reason-column {
+  max-width: 350px; /* Allow more space for the reason text */
+  word-wrap: break-word; /* Ensure long text wraps */
+  /*white-space: normal; /* Allow the reason to span multiple lines */
+}
+
+@media (min-width: 601px) {
+  .modern-card {
+    width: 600px;
+  }
+}
+
+/* Fix overflow on mobile */
+@media (max-width: 600px) {
+  /* Adjust the table width to fit within the screen */
+  .table {
+    width: 100%; /* Make the table take up the full screen width */
+    font-size: 12px; /* Reduce font size for better fitting */
+    overflow-x: auto; /* Allow horizontal scrolling on smaller screens */
+  }
+
+  /* Adjust padding for smaller screens */
+  .table th,
+  .table td {
+    padding: 6px !important;
+  }
+
+  /* Ensure columns fit in a smaller space */
+  .table th:nth-child(3),
+  .table td:nth-child(3),
+  .table th:nth-child(2),
+  .table td:nth-child(2) {
+    min-width: 50px;
+  }
+
+  /* Make reason column span multiple lines */
+  .zebra-stripes td.reason-column {
+    max-width: 200px; /* Reduce max-width for the reason column */
+    word-wrap: break-word;
+    white-space: normal;
+  }
+
+  /* Ensure table remains inside the container */
+  .modern-card {
+    width: 100%; /* Make the card take up the full width */
+    padding: 0 10px; /* Add padding to prevent content from touching the edges */
+  }
+}
