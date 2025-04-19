@@ -1,0 +1,44 @@
+[en]
+MENU_TITLE    = \rWHDH\w Beállítások
+ON            = \r[\yON\r]\w
+OFF           = \r[\dOFF\r]\w
+TURN_OFF      = \dKikapcsolva\w
+TEAMMATES     = Csak csapattársak
+OPPONENTS     = Csak ellenségek
+OPP_TEAM      = Ellenségek és Csapattársak
+MARKER        = Jelölés
+LINES         = Vonalak
+BOXES         = Boxok
+TRANSP_ENTITIES = Átlátható entityk
+EXIT          = Kilépés
+NOT_READY     = WHDH pályaváltás után lesz elérhető
+
+[ru]
+MENU_TITLE    = \rWHDH\w Beállítások
+ON            = \r[\yON\r]\w
+OFF           = \r[\dOFF\r]\w
+TURN_OFF      = \dKikapcsolva\w
+TEAMMATES     = Csak csapattársak
+OPPONENTS     = Csak ellenségek
+OPP_TEAM      = Ellenségek és Csapattársak
+MARKER        = Jelölés
+LINES         = Vonalak
+BOXES         = Boxok
+TRANSP_ENTITIES = Átlátható entityk
+EXIT          = Kilépés
+NOT_READY     = WHDH pályaváltás után lesz elérhető
+
+[hu]
+MENU_TITLE    = \rWHDH\w Beállítások
+ON            = \r[\yON\r]\w
+OFF           = \r[\dOFF\r]\w
+TURN_OFF      = \dKikapcsolva\w
+TEAMMATES     = Csak csapattársak
+OPPONENTS     = Csak ellenségek
+OPP_TEAM      = Ellenségek és Csapattársak
+MARKER        = Jelölés
+LINES         = Vonalak
+BOXES         = Boxok
+TRANSP_ENTITIES = Átlátható entityk
+EXIT          = Kilépés
+NOT_READY     = WHDH pályaváltás után lesz elérhető

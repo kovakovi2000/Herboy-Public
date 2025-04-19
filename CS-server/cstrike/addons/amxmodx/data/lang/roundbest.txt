@@ -1,0 +1,27 @@
+[hu]
+ROUNDBEST_PLAYER = A legjobb játékos ebben a körben ^4%s^1 volt!
+ROUNDBEST_STATS = Megölt ^3%i^1 játékost, ebből ^4%i^1 fejessel!
+
+[en]
+ROUNDBEST_PLAYER = The best player this round was ^4%s^1!
+ROUNDBEST_STATS = Killed ^3%i^1 players, ^4%i^1 with headshots!
+
+[ro]
+ROUNDBEST_PLAYER = Cel mai bun jucător din această rundă a fost ^4%s^1!
+ROUNDBEST_STATS = A ucis ^3%i^1 jucători, dintre care ^4%i^1 cu lovituri la cap!
+
+[sk]
+ROUNDBEST_PLAYER = Najlepší hráč tohto kola bol ^4%s^1!
+ROUNDBEST_STATS = Zabil ^3%i^1 hráčov, z toho ^4%i^1 s headshotom!
+
+[sr]
+ROUNDBEST_PLAYER = Najbolji igrač u ovoj rundi bio je ^4%s^1!
+ROUNDBEST_STATS = Ubio je ^3%i^1 igrača, od toga ^4%i^1 sa headshotom!
+
+[de]
+ROUNDBEST_PLAYER = Der beste Spieler dieser Runde war ^4%s^1!
+ROUNDBEST_STATS = Hat ^3%i^1 Spieler getötet, davon ^4%i^1 mit Kopfschüssen!
+
+[au]
+ROUNDBEST_PLAYER = Najkrašči hráč tsieyi rundy buv ^4%s^1!
+ROUNDBEST_STATS = Vbyv ^3%i^1 hračiv, z nykh ^4%i^1 z postrilom v holovu!

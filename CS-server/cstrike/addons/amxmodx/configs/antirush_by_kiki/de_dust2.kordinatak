@@ -1,0 +1,6 @@
+; Anti-Rush By kiki - hlmod.hu
+; Ez a konfig a de_dust2 palyahoz tartozik!
+
+zona_rush zona_ct -356.6 548.0 186.3 -297 -32 -197 297 32 197
+zona_rush zona_ct 642.6 205.3 88.9 -142 -38 -87 142 38 87
+zona_rush zona_ct -1758.0 141.9 294.5 -432 -32 -302 432 32 302

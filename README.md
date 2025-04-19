@@ -22,15 +22,16 @@ If you're here, you're probably digging deep — enjoy the ride!
 
 ## 🗃️ What's Inside
 
-| Component       | Description                                  |
-|----------------|----------------------------------------------|
-| `APD3-web/`         | Webadmin for manage player, bans, etc.        |
+| Component             | Description                                                                      |
+|-----------------------|----------------------------------------------------------------------------------|
+| `CS-server/`          | Esential files from the installed server                                         |
+| `APD3-web/`           | Webadmin for manage player, bans, etc.                                           |
 | `BanAPI-web/`         | WebAPI for the BanSys to communicate with the client request during connect      |
-| `AMXXHerboyD2-main/`| Source AMXX plugins             |
-| `BanUI-web/`| Interactive view port of the BanSys data             |
-| [mega link](https://mega.nz/file/M5Mj0TID#a6ZfyxqIW874UbKJHV4UswS54d6LtiTIS2dSMND27p0)      | Skins, models, sounds used on the server     |
-| `Model-Making/`       | Custom tools and helper scripts used for modeling              |
-| `SQL-Tables/`        | All truncated table from SQL                     |
+| `AMXXHerboyD2-main/`  | AMXX plugins' source code                                                        |
+| `BanUI-web/`          | Interactive view port of the BanSys data                                         |
+| [mega link](https://mega.nz/file/M5Mj0TID#a6ZfyxqIW874UbKJHV4UswS54d6LtiTIS2dSMND27p0) | Skins, models, sounds used on the server     |
+| `Model-Making/`       | Custom tools and helper scripts used for modeling                                |
+| `SQL-Tables/`         | All truncated table from SQL                                                     |
 
 ---
 

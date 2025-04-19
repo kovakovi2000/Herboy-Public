@@ -1,0 +1,76 @@
+[hu]
+GUNMENU_WEAPON_MENU = Fegyver menü
+GUNMENU_PACKAGE_CHOICE = Te a(z) ^3%s^1 csomagot választottad!
+GUNMENU_DEAGLE_CHOICE = Te a(z) ^3Deagle^1-t választottad!
+GUNMENU_USP_CHOICE = Te a(z) ^3USP^1-t választottad!
+GUNMENU_GLOCK_CHOICE = Te a(z) ^3Glock18^1-ot választottad!
+GUNMENU_AWP_TEAM_LIMIT = Csapatonként csak két ember AWP-zhet!
+GUNMENU_AWP_RESTRICTION = %s ^1AWP csak 4v4-től használható!
+GUNMENU_BUY_DISABLED = A vásárlás letiltva!
+GUNMENU_ALREADY_CHOSEN = Te már választottál fegyvert!
+
+[en]
+GUNMENU_WEAPON_MENU = Weapon menu
+GUNMENU_PACKAGE_CHOICE = You chose the ^3%s^1 package!
+GUNMENU_DEAGLE_CHOICE = You chose the ^3Deagle^1!
+GUNMENU_USP_CHOICE = You chose the ^3USP^1!
+GUNMENU_GLOCK_CHOICE = You chose the ^3Glock18^1!
+GUNMENU_AWP_TEAM_LIMIT = Only two players per team can use the AWP!
+GUNMENU_AWP_RESTRICTION = %s ^1AWP is only available from 4v4!
+GUNMENU_BUY_DISABLED = Buying is disabled!
+GUNMENU_ALREADY_CHOSEN = You have already chosen a weapon!
+
+[ro]
+GUNMENU_WEAPON_MENU = Meniu arme
+GUNMENU_PACKAGE_CHOICE = Ai ales pachetul ^3%s^1!
+GUNMENU_DEAGLE_CHOICE = Ai ales ^3Deagle^1!
+GUNMENU_USP_CHOICE = Ai ales ^3USP^1!
+GUNMENU_GLOCK_CHOICE = Ai ales ^3Glock18^1!
+GUNMENU_AWP_TEAM_LIMIT = Doar doi jucători pe echipă pot folosi AWP!
+GUNMENU_AWP_RESTRICTION = %s ^1AWP este disponibil doar de la 4v4!
+GUNMENU_BUY_DISABLED = Cumpărarea este dezactivată!
+GUNMENU_ALREADY_CHOSEN = Ai ales deja o armă!
+
+[sk]
+GUNMENU_WEAPON_MENU = Menu zbraní
+GUNMENU_PACKAGE_CHOICE = Vybrali ste balíček ^3%s^1!
+GUNMENU_DEAGLE_CHOICE = Vybrali ste ^3Deagle^1!
+GUNMENU_USP_CHOICE = Vybrali ste ^3USP^1!
+GUNMENU_GLOCK_CHOICE = Vybrali ste ^3Glock18^1!
+GUNMENU_AWP_TEAM_LIMIT = Len dvaja hráči na tím môžu používať AWP!
+GUNMENU_AWP_RESTRICTION = %s ^1AWP je dostupný len od 4v4!
+GUNMENU_BUY_DISABLED = Nákup je zakázaný!
+GUNMENU_ALREADY_CHOSEN = Už ste si vybrali zbraň!
+
+[sr]
+GUNMENU_WEAPON_MENU = Meni oružja
+GUNMENU_PACKAGE_CHOICE = Izabrali ste ^3%s^1 paket!
+GUNMENU_DEAGLE_CHOICE = Izabrali ste ^3Deagle^1!
+GUNMENU_USP_CHOICE = Izabrali ste ^3USP^1!
+GUNMENU_GLOCK_CHOICE = Izabrali ste ^3Glock18^1!
+GUNMENU_AWP_TEAM_LIMIT = Samo dva igrača po timu mogu koristiti AWP!
+GUNMENU_AWP_RESTRICTION = %s ^1AWP je dostupan samo od 4v4!
+GUNMENU_BUY_DISABLED = Kupovina je onemogućena!
+GUNMENU_ALREADY_CHOSEN = Već ste izabrali oružje!
+
+[de]
+GUNMENU_WEAPON_MENU = Waffenmenü
+GUNMENU_PACKAGE_CHOICE = Du hast das Paket ^3%s^1 gewählt!
+GUNMENU_DEAGLE_CHOICE = Du hast die ^3Deagle^1 gewählt!
+GUNMENU_USP_CHOICE = Du hast die ^3USP^1 gewählt!
+GUNMENU_GLOCK_CHOICE = Du hast die ^3Glock18^1 gewählt!
+GUNMENU_AWP_TEAM_LIMIT = Pro Team dürfen nur zwei Spieler eine AWP nutzen!
+GUNMENU_AWP_RESTRICTION = %s ^1AWP ist nur ab 4v4 verfügbar!
+GUNMENU_BUY_DISABLED = Kaufen ist deaktiviert!
+GUNMENU_ALREADY_CHOSEN = Du hast bereits eine Waffe gewählt!
+
+[au]
+GUNMENU_WEAPON_MENU = Meniu zbroi
+GUNMENU_PACKAGE_CHOICE = Vy obraly ^3%s^1 paket!
+GUNMENU_DEAGLE_CHOICE = Vy obraly ^3Deagle^1!
+GUNMENU_USP_CHOICE = Vy obraly ^3USP^1!
+GUNMENU_GLOCK_CHOICE = Vy obraly ^3Glock18^1!
+GUNMENU_AWP_TEAM_LIMIT = Lše dva hračy na komandu možut vykorystovuvaty AWP!
+GUNMENU_AWP_RESTRICTION = %s ^1AWP dostupnyj lyshe vid 4v4!
+GUNMENU_BUY_DISABLED = Kupivlia zaborońena!
+GUNMENU_ALREADY_CHOSEN = Vy už obraly zbroju!

@@ -1,0 +1,10 @@
+Leírás: A plugin segítségével meg tudjuk ölni a játékosokat, elég látványos módon! 
+
+Admin parancsok: 
+
+amx_shoopslay "Név vagy #userid vagy @all" 
+
+
+videó: 
+
+http://www.youtube.com/watch?v=S5ApCUUUvyw&fmt=18

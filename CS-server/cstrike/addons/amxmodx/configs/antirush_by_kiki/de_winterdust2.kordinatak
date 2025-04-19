@@ -1,0 +1,6 @@
+; Anti-Rush By kiki - hlmod.hu
+; Ez a konfig a de_winterdust2 palyahoz tartozik!
+
+zona_rush zona_ct -1292.4 -1072.2 -261.9 -372 -32 -222 372 32 222
+zona_rush zona_ct 84.9 -709.9 -290.9 -317 -32 -167 317 32 167
+zona_rush zona_ct 1087.0 -1044.5 -361.9 -132 -42 -92 132 42 92
